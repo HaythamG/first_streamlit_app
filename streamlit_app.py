@@ -1,2 +1,4 @@
 import streamlit as st 
-st.title("makayn ha lfitna f 2023")
+st.title("Snowflake App for learning")
+st.header("Uploading data")
+st.markdown("the job is to build an app to upload data from csv files to snowflake databases")
