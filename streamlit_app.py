@@ -35,4 +35,11 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_cho
 #st.text(fruityvice_response.json())
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 st.dataframe(fruityvice_normalized)
+
+my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
+my_cur = my_cnx.cursor()
+my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
+my_data_row = my_cur.fetchone()
+st.text("Hello from Snowflake:")
+st.text(my_data_row)
    
